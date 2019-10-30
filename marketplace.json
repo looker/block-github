@@ -12,7 +12,7 @@
       "value_constraint": "connection"
     },
     "GITHUB_SCHEMA": {
-      "label": "Facebook Schema Name"
+      "label": "GitHub Schema Name"
     },
     "CONFIG_PROJECT_NAME": {
       "label": "Config Project Name"
