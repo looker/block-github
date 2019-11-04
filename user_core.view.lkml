@@ -1,4 +1,10 @@
+include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
+
 view: user {
+  extends: [user_config]
+}
+
+view: user_core {
   sql_table_name: github.user ;;
   drill_fields: [id]
 

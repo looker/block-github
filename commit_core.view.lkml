@@ -1,4 +1,10 @@
+include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
+
 view: commit {
+  extends: [commit_config]
+}
+
+view: commit_core {
   sql_table_name: github.commit ;;
 
   dimension_group: _fivetran_synced {

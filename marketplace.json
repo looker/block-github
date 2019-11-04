@@ -1,0 +1,35 @@
+{
+  "label": "GitHub Commits",
+  "category_label": "Models",
+  "branding": {
+    "image_uri": "https://marketplace-api.looker.com/block-icons/github_icon.png",
+    "tagline": ""
+  },
+
+  "constants": {
+    "CONNECTION_NAME": {
+      "label": "Connection Name",
+      "value_constraint": "connection"
+    },
+    "GITHUB_SCHEMA": {
+      "label": "GitHub Schema Name"
+    },
+    "CONFIG_PROJECT_NAME": {
+      "label": "Config Project Name"
+    }
+  },
+  "models": [
+    {
+      "name": "block_github_commits",
+      "connection_constant": "CONNECTION_NAME"
+    }
+  ],
+  "auxiliary_projects": [
+    {
+      "git_uri": "git://github.com/looker/block-github-commits-config.git",
+      "git_ref": "9cafd2ed90b4c4a180e09ca5a0f618623915abfc",
+      "label": "GitHub Commits Config",
+      "constant_name": "CONFIG_PROJECT_NAME"
+    }
+  ]
+}

@@ -1,4 +1,10 @@
+include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
+
 view: fivetran_audit {
+  extends: [fivetran_audit_config]
+}
+
+view: fivetran_audit_core {
   sql_table_name: github.fivetran_audit ;;
   drill_fields: [id]
 
