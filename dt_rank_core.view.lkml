@@ -1,4 +1,10 @@
+include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
+
 view: dt_rank {
+  extends: [dt_rank_config]
+}
+
+view: dt_rank_core {
   derived_table: {
     sql: SELECT
         user.id  AS user_id,

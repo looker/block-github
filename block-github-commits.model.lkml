@@ -4,9 +4,6 @@ include: "//@{CONFIG_PROJECT_NAME}/*.dashboard"
 include: "*.view"
 include: "*.dashboard"
 
-# include all the views
-include: "/views/**/*.view"
-
 datagroup: block_github_commits_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
@@ -30,11 +27,11 @@ explore: commit {
     sql_on: ${commit.sha} = ${commit_file.commit_sha} ;;
     relationship: one_to_many
   }
-  join: commit_parent {
-    type: left_outer
-    sql_on: ${commit.sha} = ${commit_parent.commit_sha} ;;
-    relationship: one_to_many
-  }
+  # join: commit_parent {
+  #   type: left_outer
+  #   sql_on: ${commit.sha} = ${commit_parent.commit_sha} ;;
+  #   relationship: one_to_many
+  # }
   join: repository {
     type: left_outer
     sql_on: ${commit.repository_id} = ${repository.id} ;;

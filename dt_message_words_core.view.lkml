@@ -1,4 +1,10 @@
+include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
+
 view: dt_message_words {
+  extends: [dt_message_words_config]
+}
+
+view: dt_message_words_core {
   derived_table: {
 #     persist_for: "24 hours"
   sql: WITH setup AS (
