@@ -8,7 +8,7 @@ local_dependency: {
 }
 
 constant: CONFIG_PROJECT_NAME {
-  value: "block-github-commits"
+  value: "block-github-commits-config"
   export: override_required
 }
 
