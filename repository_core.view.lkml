@@ -1,4 +1,10 @@
+include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
+
 view: repository {
+  extends: [repository_config]
+}
+
+view: repository_core {
   sql_table_name: github.repository ;;
   drill_fields: [id]
 

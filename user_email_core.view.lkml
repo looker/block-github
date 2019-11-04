@@ -1,4 +1,10 @@
+include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
+
 view: user_email {
+  extends: [user_email_config]
+}
+
+view: user_email_core {
   sql_table_name: github.user_email ;;
 
   dimension_group: _fivetran_synced {
