@@ -1,4 +1,8 @@
-connection: "github_meredith_thesis"
+connection: "@{CONNECTION_NAME}"
+include: "//@{CONFIG_PROJECT_NAME}/*.view"
+include: "//@{CONFIG_PROJECT_NAME}/*.dashboard"
+include: "*.view"
+include: "*.dashboard"
 
 # include all the views
 include: "/views/**/*.view"
