@@ -11,11 +11,13 @@ view: user_core {
   dimension: id {
     primary_key: yes
     type: number
+    hidden: yes
     sql: ${TABLE}.id ;;
   }
 
   dimension_group: _fivetran_synced {
     type: time
+    hidden: yes
     timeframes: [
       raw,
       time,
@@ -73,6 +75,11 @@ view: user_core {
   }
 
   dimension: name {
+    type: string
+    sql: ${TABLE}.name ;;
+  }
+
+  dimension: owner_name {
     type: string
     sql: ${TABLE}.name ;;
   }

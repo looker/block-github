@@ -9,6 +9,7 @@ view: commit_core {
 
   dimension_group: _fivetran_synced {
     type: time
+    hidden:  yes
     timeframes: [
       raw,
       time,
@@ -85,7 +86,7 @@ view: commit_core {
 
   dimension: repository_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.repository_id ;;
   }
 
@@ -105,81 +106,10 @@ view: commit_core {
     drill_fields: [author_name, message, author_date]
   }
 
-  measure: count_of_test_messages {
-    type: count
-    filters: {
-      field: dt_message_words.flattenedMessages
-      value: "test, tests"
-    }
-    drill_fields: [author_name, message, author_date]
-  }
-
-  measure: count_of_fix_messages {
-    type: count
-    filters: {
-      field: dt_message_words.flattenedMessages
-      value: "fix, fixes"
-    }
-    drill_fields: [author_name, message, author_date]
-  }
-
-  measure: count_of_merge_messages {
-    type: count
-    filters: {
-      field: dt_message_words.flattenedMessages
-      value: "Merge, merge"
-    }
-    drill_fields: [author_name, message, author_date]
-  }
-
-  measure: count_of_pr_messages {
-    type: count
-    filters: {
-      field: dt_message_words.flattenedMessages
-      value: "pull, request"
-    }
-    drill_fields: [author_name, message, author_date]
-  }
-
-  measure: count_of_add_messages {
-    type: count
-    filters: {
-      field: dt_message_words.flattenedMessages
-      value: "add, adds"
-    }
-    drill_fields: [author_name, message, author_date]
-  }
-
-  measure: count_of_remove_messages {
-    type: count
-    filters: {
-      field: dt_message_words.flattenedMessages
-      value: "remove, removes"
-    }
-    drill_fields: [author_name, message, author_date]
-  }
-
-  measure: count_of_close_messages {
-    type: count
-    filters: {
-      field: dt_message_words.flattenedMessages
-      value: "close, closed, Close"
-    }
-    drill_fields: [author_name, message, author_date]
-  }
-
-  measure: count_of_docs_messages {
-    type: count
-    filters: {
-      field: dt_message_words.flattenedMessages
-      value: "docs, docs:"
-    }
-    drill_fields: [author_name, message, author_date]
-  }
-
-
   measure: average_message_length {
     type: average
     sql: ${message_length} ;;
+    value_format_name: decimal_1
   }
+
 }

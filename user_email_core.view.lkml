@@ -18,6 +18,7 @@ view: user_email_core {
       quarter,
       year
     ]
+    hidden: yes
     sql: ${TABLE}._fivetran_synced ;;
   }
 
@@ -33,7 +34,7 @@ view: user_email_core {
 
   dimension: user_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.user_id ;;
   }
 
