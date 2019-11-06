@@ -12,6 +12,11 @@ datagroup: block_github_commits_default_datagroup {
 persist_with: block_github_commits_default_datagroup
 
 explore: commit {
+  extends: [commit_config]
+}
+
+explore: commit_core {
+  extension: required
   join: user_email {
     type: left_outer
     sql_on: ${commit.author_email} = ${user_email.email} ;;
@@ -27,14 +32,17 @@ explore: commit {
     sql_on: ${commit.sha} = ${commit_file.commit_sha} ;;
     relationship: one_to_many
   }
-  # join: commit_parent {
-  #   type: left_outer
-  #   sql_on: ${commit.sha} = ${commit_parent.commit_sha} ;;
-  #   relationship: one_to_many
-  # }
   join: repository {
     type: left_outer
     sql_on: ${commit.repository_id} = ${repository.id} ;;
+    relationship: many_to_one
+  }
+  join: repository_owner {
+    fields: [owner_name]
+    view_label: "Repository"
+    from: user
+    type: left_outer
+    sql_on: ${repository.owner_id} = ${repository_owner.id} ;;
     relationship: many_to_one
   }
   join: dt_rank {
@@ -48,15 +56,3 @@ explore: commit {
     relationship: one_to_many
   }
 }
-
-explore: commit_file {}
-
-explore: commit_parent {}
-
-explore: fivetran_audit {}
-
-explore: repository {}
-
-explore: user {}
-
-explore: user_email {}

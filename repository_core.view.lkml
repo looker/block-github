@@ -102,6 +102,7 @@ view: repository_core {
 
     dimension: owner_id {
       type: number
+      #hidden:  yes
       sql: ${TABLE}.owner_id ;;
     }
 
