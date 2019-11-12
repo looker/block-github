@@ -3,7 +3,7 @@
   "category_label": "Models",
   "branding": {
     "image_uri": "https://marketplace-api.looker.com/block-icons/github_icon.png",
-    "tagline": "Github is a cloud-based Git repository hosting service that enables developers to store, manage and track changes to their source code. This Block provides a real-time, interactive analytics suite for Github commits history, authors and repository data.",
+    "tagline": "Github is a cloud-based Git repository hosting service that enables developers to store, manage and track changes to their source code. This Block provides a real-time, interactive analytics suite for Github commits history, authors and repository data."
   },
 
   "constants": {
