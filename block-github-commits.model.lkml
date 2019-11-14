@@ -1,7 +1,7 @@
 connection: "@{CONNECTION_NAME}"
 include: "//@{CONFIG_PROJECT_NAME}/*.view"
 include: "//@{CONFIG_PROJECT_NAME}/*.dashboard"
-include: "*.view"
+include: "views/*.view"
 include: "*.dashboard"
 
 datagroup: block_github_commits_default_datagroup {
@@ -55,4 +55,72 @@ explore: commit_core {
     sql_on: ${commit.sha} = ${dt_message_words.sha} ;;
     relationship: one_to_many
   }
+}
+
+explore: team {
+  extends: [team_config]
+}
+
+explore: team_core {
+  extension: required
+
+  join: team_membership {
+    fields: []
+    type: left_outer
+    sql_on: ${team.id} = ${team_membership.team_id} ;;
+    relationship: one_to_many
+  }
+  join: user {
+    type: left_outer
+    sql_on: ${team_membership.user_id} = ${user.id} ;;
+    relationship: one_to_many
+  }
+  join: user_email {
+    type: left_outer
+    sql_on: ${user.id} = ${user_email.user_id} ;;
+    relationship: many_to_one
+  }
+  join: repo_team {
+    type: left_outer
+    sql_on: ${team.id} = ${repo_team.team_id} ;;
+    relationship: one_to_one
+  }
+
+}
+
+explore: pull_request {
+  extends: [pull_request_config]
+}
+
+explore: pull_request_core {
+  extension: required
+
+  join: issue {
+    from: user
+    type: left_outer
+    sql_on: ${pull_request.issue_id} = ${issue.id} ;;
+    relationship: many_to_one
+  }
+  join: requested_reviewer_history {
+    type: left_outer
+    sql_on: ${pull_request.id} = ${requested_reviewer_history.pull_request_id} ;;
+    relationship: one_to_many
+  }
+  join: pull_request_review {
+    type: left_outer
+    sql_on: ${pull_request.id} = ${pull_request_review.pull_request_id};;
+    relationship: one_to_many
+  }
+  join: reviewer {
+    from: user
+    type: left_outer
+    sql_on: ${reviewer.id} = ${pull_request_review.user_id} ;;
+    relationship: many_to_one
+  }
+  join: pull_request_review_dismissed {
+    type: left_outer
+    sql_on: ${pull_request_review_dismissed.pull_request_review_id} = ${pull_request_review.id} ;;
+    relationship: one_to_one
+  }
+
 }

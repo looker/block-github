@@ -1,23 +1,21 @@
 include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
 
-view: user {
-  extends: [user_config]
+view: project {
+  extends: [project_config]
 }
 
-view: user_core {
-  sql_table_name: github.user ;;
+view: project_core {
+  sql_table_name: @{GITHUB_SCHEMA}.project ;;
   drill_fields: [id]
 
   dimension: id {
     primary_key: yes
     type: number
-    hidden: yes
     sql: ${TABLE}.id ;;
   }
 
   dimension_group: _fivetran_synced {
     type: time
-    hidden: yes
     timeframes: [
       raw,
       time,
@@ -30,19 +28,9 @@ view: user_core {
     sql: ${TABLE}._fivetran_synced ;;
   }
 
-  dimension: bio {
+  dimension: body {
     type: string
-    sql: ${TABLE}.bio ;;
-  }
-
-  dimension: blog {
-    type: string
-    sql: ${TABLE}.blog ;;
-  }
-
-  dimension: company {
-    type: string
-    sql: LOWER(REPLACE(TRIM(${TABLE}.company), '@', '')) ;;
+    sql: ${TABLE}.body ;;
   }
 
   dimension_group: created {
@@ -59,19 +47,14 @@ view: user_core {
     sql: ${TABLE}.created_at ;;
   }
 
-  dimension: hireable {
+  dimension: creator_id {
+    type: number
+    sql: ${TABLE}.creator_id ;;
+  }
+
+  dimension: is_deleted {
     type: yesno
-    sql: ${TABLE}.hireable ;;
-  }
-
-  dimension: location {
-    type: string
-    sql: ${TABLE}.location ;;
-  }
-
-  dimension: login {
-    type: string
-    sql: ${TABLE}.login ;;
+    sql: ${TABLE}.is_deleted ;;
   }
 
   dimension: name {
@@ -79,19 +62,19 @@ view: user_core {
     sql: ${TABLE}.name ;;
   }
 
-  dimension: owner_name {
-    type: string
-    sql: ${TABLE}.name ;;
+  dimension: number {
+    type: number
+    sql: ${TABLE}.number ;;
   }
 
-  dimension: site_admin {
-    type: yesno
-    sql: ${TABLE}.site_admin ;;
+  dimension: repository_id {
+    type: number
+    sql: ${TABLE}.repository_id ;;
   }
 
-  dimension: type {
+  dimension: state {
     type: string
-    sql: ${TABLE}.type ;;
+    sql: ${TABLE}.state ;;
   }
 
   dimension_group: updated {
@@ -110,7 +93,6 @@ view: user_core {
 
   measure: count {
     type: count
-    drill_fields: [id, name, user_email.count]
+    drill_fields: [id, name, column.count, issue_project_history.count]
   }
-
 }

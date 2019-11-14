@@ -9,7 +9,7 @@ view: dt_message_words_core {
 #     persist_for: "24 hours"
   sql: WITH setup AS (
     SELECT sha, SPLIT(message, ' ') as messageAsArray
-    FROM github.commit
+    FROM @{GITHUB_SCHEMA}.commit
     )
 
     SELECT sha, flattenedMessages

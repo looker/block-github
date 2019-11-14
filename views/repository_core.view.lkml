@@ -5,7 +5,7 @@ view: repository {
 }
 
 view: repository_core {
-  sql_table_name: github.repository ;;
+  sql_table_name: @{GITHUB_SCHEMA}.repository ;;
   drill_fields: [id]
 
   dimension: id {

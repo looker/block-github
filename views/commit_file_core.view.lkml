@@ -5,7 +5,7 @@ view: commit_file {
 }
 
 view: commit_file_core {
-  sql_table_name: github.commit_file ;;
+  sql_table_name: @{GITHUB_SCHEMA}.commit_file ;;
 
   dimension_group: _fivetran_synced {
     type: time

@@ -5,7 +5,7 @@ view: user_email {
 }
 
 view: user_email_core {
-  sql_table_name: github.user_email ;;
+  sql_table_name: @{GITHUB_SCHEMA}.user_email ;;
 
   dimension_group: _fivetran_synced {
     type: time

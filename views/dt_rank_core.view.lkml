@@ -10,9 +10,9 @@ view: dt_rank_core {
         user.id  AS user_id,
         COUNT(*) AS commit_count,
         rank() over (order by COUNT(sha) desc) as rank
-      FROM github.commit  AS commit
-      LEFT JOIN github.user_email  AS user_email ON commit.author_email = user_email.email
-      LEFT JOIN github.user  AS user ON user_email.user_id = user.id
+      FROM @{GITHUB_SCHEMA}.commit  AS commit
+      LEFT JOIN @{GITHUB_SCHEMA}.user_email  AS user_email ON commit.author_email = user_email.email
+      LEFT JOIN @{GITHUB_SCHEMA}.user  AS user ON user_email.user_id = user.id
 
       GROUP BY 1
       ORDER BY 2 DESC
