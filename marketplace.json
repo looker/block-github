@@ -27,7 +27,7 @@
   "auxiliary_projects": [
     {
       "git_uri": "git://github.com/looker/block-github-commits-config.git",
-      "git_ref": "d0e4de64f3c70382925a3ba4f5e6a991f194bfc0",
+      "git_ref": "17f810b4334ad91db9d9c5d8c7f885a41458882e",
       "label": "GitHub Commits Config",
       "constant_name": "CONFIG_PROJECT_NAME"
     }
