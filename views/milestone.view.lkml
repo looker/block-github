@@ -1,16 +1,16 @@
 include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
 
-view: fivetran_audit {
-  extends: [fivetran_audit_config]
+view: milestone {
+  extends: [milestone_config]
 }
 
-view: fivetran_audit_core {
-  sql_table_name: github.fivetran_audit ;;
+view: milestone_core {
+  sql_table_name: @{GITHUB_SCHEMA}.milestone ;;
   drill_fields: [id]
 
   dimension: id {
     primary_key: yes
-    type: string
+    type: number
     sql: ${TABLE}.id ;;
   }
 
@@ -28,7 +28,7 @@ view: fivetran_audit_core {
     sql: ${TABLE}._fivetran_synced ;;
   }
 
-  dimension_group: done {
+  dimension_group: closed {
     type: time
     timeframes: [
       raw,
@@ -39,15 +39,10 @@ view: fivetran_audit_core {
       quarter,
       year
     ]
-    sql: ${TABLE}.done ;;
+    sql: ${TABLE}.closed_at ;;
   }
 
-  dimension: message {
-    type: string
-    sql: ${TABLE}.message ;;
-  }
-
-  dimension_group: progress {
+  dimension_group: created {
     type: time
     timeframes: [
       raw,
@@ -58,20 +53,20 @@ view: fivetran_audit_core {
       quarter,
       year
     ]
-    sql: ${TABLE}.progress ;;
+    sql: ${TABLE}.created_at ;;
   }
 
-  dimension: rows_updated_or_inserted {
+  dimension: creator_id {
     type: number
-    sql: ${TABLE}.rows_updated_or_inserted ;;
+    sql: ${TABLE}.creator_id ;;
   }
 
-  dimension: schema {
+  dimension: description {
     type: string
-    sql: ${TABLE}.schema ;;
+    sql: ${TABLE}.description ;;
   }
 
-  dimension_group: start {
+  dimension_group: due {
     type: time
     timeframes: [
       raw,
@@ -82,25 +77,35 @@ view: fivetran_audit_core {
       quarter,
       year
     ]
-    sql: ${TABLE}.start ;;
+    sql: ${TABLE}.due_on ;;
   }
 
-  dimension: status {
+  dimension: is_deleted {
+    type: yesno
+    sql: ${TABLE}.is_deleted ;;
+  }
+
+  dimension: number {
+    type: number
+    sql: ${TABLE}.number ;;
+  }
+
+  dimension: repository_id {
+    type: number
+    sql: ${TABLE}.repository_id ;;
+  }
+
+  dimension: state {
     type: string
-    sql: ${TABLE}.status ;;
+    sql: ${TABLE}.state ;;
   }
 
-  dimension: table {
+  dimension: title {
     type: string
-    sql: ${TABLE}.table ;;
+    sql: ${TABLE}.title ;;
   }
 
-  dimension: update_id {
-    type: string
-    sql: ${TABLE}.update_id ;;
-  }
-
-  dimension_group: update_started {
+  dimension_group: updated {
     type: time
     timeframes: [
       raw,
@@ -111,11 +116,11 @@ view: fivetran_audit_core {
       quarter,
       year
     ]
-    sql: ${TABLE}.update_started ;;
+    sql: ${TABLE}.updated_at ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [id]
+    drill_fields: [id, issue.count, issue_milestone_history.count]
   }
 }

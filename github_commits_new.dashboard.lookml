@@ -1,5 +1,5 @@
-- dashboard: github_commits_new
-  title: Github Commits New
+- dashboard: github_commits_overview
+  title: Github Commits Overview
   layout: newspaper
   elements:
   - title: Commits By Day of Week and Hour of Day

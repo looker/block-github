@@ -13,11 +13,11 @@ constant: CONFIG_PROJECT_NAME {
 }
 
 constant: CONNECTION_NAME {
-  value: "github_meredith_thesis"
+  value: "static_data"
   export: override_required
 }
 
 constant: GITHUB_SCHEMA {
-  value: "github"
+  value: "github_skeleton"
   export: override_required
 }
