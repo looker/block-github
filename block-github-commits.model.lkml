@@ -124,3 +124,12 @@ explore: pull_request_core {
   }
 
 }
+
+explore: issue {
+  extends: [issue_config]
+}
+
+explore: issue_core {
+  extension: required
+
+}
