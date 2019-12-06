@@ -131,9 +131,10 @@ view: issue_core {
     drill_fields: [detail*]
   }
 
-  measure: avg_open_duration {
-    type: average
-    sql: TIMESTAMP_DIFF(${closed_raw}, ${created_raw}, DAY) ;;
+  dimension_group: open {
+    type: duration
+    sql_start:${created_raw}  ;;
+    sql_end: ${closed_raw}  ;;
   }
 
   # ----- Sets of fields for drilling ------
