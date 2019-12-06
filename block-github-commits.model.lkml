@@ -112,6 +112,7 @@ explore: pull_request_core {
     relationship: one_to_many
   }
   join: reviewer {
+    fields: [reviewer.name]
     from: user
     type: left_outer
     sql_on: ${reviewer.id} = ${pull_request_review.user_id} ;;
@@ -121,6 +122,22 @@ explore: pull_request_core {
     type: left_outer
     sql_on: ${pull_request_review_dismissed.pull_request_review_id} = ${pull_request_review.id} ;;
     relationship: one_to_one
+  }
+  join: pull_request_head_user {
+    view_label: "Pull Request"
+    fields: [pull_request_head_user.head_user_name]
+    from: user
+    type: left_outer
+    sql_on: ${pull_request_head_user.id} = ${pull_request.head_user_id} ;;
+    relationship: many_to_one
+  }
+  join: reposityry_head {
+    view_label: "Pull Request"
+    fields: [reposityry_head.head_repo_name]
+    from: repository
+    type: left_outer
+    sql_on: ${reposityry_head.id} = ${pull_request.head_repo_id} ;;
+    relationship: many_to_one
   }
 
 }

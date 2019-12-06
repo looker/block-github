@@ -10,12 +10,13 @@ view: pull_request_core {
 
   dimension: id {
     primary_key: yes
-    type: number
+    type: string
     sql: ${TABLE}.id ;;
   }
 
   dimension_group: _fivetran_synced {
     type: time
+    hidden: yes
     timeframes: [
       raw,
       time,
@@ -41,6 +42,7 @@ view: pull_request_core {
   dimension: base_repo_id {
     type: number
     sql: ${TABLE}.base_repo_id ;;
+    hidden: yes
   }
 
   dimension: base_sha {
@@ -51,6 +53,7 @@ view: pull_request_core {
   dimension: base_user_id {
     type: number
     sql: ${TABLE}.base_user_id ;;
+    hidden: yes
   }
 
   dimension: head_label {
@@ -66,6 +69,7 @@ view: pull_request_core {
   dimension: head_repo_id {
     type: number
     sql: ${TABLE}.head_repo_id ;;
+    hidden: yes
   }
 
   dimension: head_sha {
@@ -76,17 +80,23 @@ view: pull_request_core {
   dimension: head_user_id {
     type: number
     sql: ${TABLE}.head_user_id ;;
+    hidden: yes
   }
 
   dimension: issue_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.issue_id ;;
   }
 
   dimension: merge_commit_sha {
     type: string
     sql: ${TABLE}.merge_commit_sha ;;
+  }
+
+  dimension: is_merged {
+    type: yesno
+    sql: ${merge_commit_sha} IS NULL ;;
   }
 
   measure: count {
