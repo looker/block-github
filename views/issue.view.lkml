@@ -48,11 +48,11 @@ view: issue_core {
     sql: ${TABLE}.closed_at ;;
   }
 
-  dimension: is_open {
-    type: yesno
+  dimension: open_or_closed {
+    type: string
     sql: CASE
-  WHEN ${closed_date} IS NULL THEN true
-  ELSE false
+  WHEN ${closed_date} IS NULL THEN "Open"
+  ELSE "Closed"
   END ;;
   }
 
