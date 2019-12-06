@@ -227,6 +227,11 @@ explore: issue_core {
     sql_on: ${issue.id} = ${issue_renamed.issue_id} ;;
     relationship: one_to_one
   }
+  join: repository {
+    type: left_outer
+    sql_on: ${issue.repository_id} = ${repository.id} ;;
+    relationship: many_to_one
+  }
 
 
 }
