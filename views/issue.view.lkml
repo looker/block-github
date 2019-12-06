@@ -93,6 +93,14 @@ view: issue_core {
     sql: ${TABLE}.state ;;
   }
 
+  dimension: is_open {
+    type: yesno
+    sql: CASE
+      WHEN ${state} = 'open' THEN true
+      ELSE false
+      END;;
+  }
+
   dimension: title {
     type: string
     sql: ${TABLE}.title ;;
