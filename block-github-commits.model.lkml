@@ -167,16 +167,17 @@ explore: issue_core {
     sql_on: ${issue_assignee.user_id} = ${assignee_user_info.id} ;;
     relationship: one_to_many
   }
-  join: issue_closed_history {
-    type: left_outer
-    sql_on: ${issue.id} = ${issue_closed_history.issue_id} ;;
-    relationship: one_to_many
-  }
   join: issue_comment {
     view_label: "Issue"
     type: left_outer
     sql_on: ${issue.id} = ${issue_comment.issue_id} ;;
     relationship: one_to_many
+  }
+  join: comment_user_info {
+    from: user_core
+    type: left_outer
+    sql_on: ${issue_comment.user_id} = ${comment_user_info.id} ;;
+    relationship: one_to_one
   }
   join: issue_label {
     view_label: "Issue"
@@ -202,10 +203,22 @@ explore: issue_core {
     sql_on: ${issue.id} = ${issue_merged.issue_id} ;;
     relationship: one_to_one
   }
+  join: merge_user_info {
+    from: user_core
+    type: left_outer
+    sql_on: ${issue_merged.actor_id} = ${merge_user_info.id} ;;
+    relationship: one_to_one
+  }
   join: issue_referenced {
     view_label: "Issue"
     type: left_outer
     sql_on: ${issue.id} = ${issue_referenced.issue_id} ;;
+    relationship: one_to_one
+  }
+  join: referenced_user_info {
+    from: user_core
+    type: left_outer
+    sql_on: ${issue_referenced.actor_id} = ${referenced_user_info.id} ;;
     relationship: one_to_one
   }
   join: issue_renamed {
