@@ -65,6 +65,7 @@ view: issue_renamed_core {
   }
 
   measure: count {
+    label: "Renamed Count"
     type: count
     drill_fields: [to_name, from_name, issue.id]
   }
