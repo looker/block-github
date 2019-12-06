@@ -9,6 +9,7 @@ view: issue_merged_core {
 
   dimension_group: _fivetran_synced {
     type: time
+    hidden: yes
     timeframes: [
       raw,
       time,
@@ -22,22 +23,25 @@ view: issue_merged_core {
   }
 
   dimension: actor_id {
+    group_label: "Merged Info"
     type: number
     sql: ${TABLE}.actor_id ;;
   }
 
   dimension: commit_sha {
+    group_label: "Merged Info"
     type: string
     sql: ${TABLE}.commit_sha ;;
   }
 
   dimension: issue_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.issue_id ;;
   }
 
   dimension_group: merged {
+    group_label: "Merged Info"
     type: time
     timeframes: [
       raw,
@@ -52,6 +56,7 @@ view: issue_merged_core {
   }
 
   measure: count {
+    label: "Merge Count"
     type: count
     drill_fields: [issue.id]
   }

@@ -9,6 +9,7 @@ view: issue_mention_core {
 
   dimension_group: _fivetran_synced {
     type: time
+    hidden: yes
     timeframes: [
       raw,
       time,
@@ -23,11 +24,13 @@ view: issue_mention_core {
 
   dimension: issue_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.issue_id ;;
   }
 
   dimension_group: updated {
+    group_label: "Mention Info"
+    label: "Mention Updated"
     type: time
     timeframes: [
       raw,
@@ -43,10 +46,12 @@ view: issue_mention_core {
 
   dimension: user_id {
     type: number
+    hidden: yes
     sql: ${TABLE}.user_id ;;
   }
 
   measure: count {
+    label: "Mention Count"
     type: count
     drill_fields: [issue.id]
   }
