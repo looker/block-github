@@ -19,11 +19,13 @@ view: requested_reviewer_history_core {
       year
     ]
     sql: ${TABLE}._fivetran_synced ;;
+    hidden: yes
   }
 
   dimension: actor_id {
     type: number
     sql: ${TABLE}.actor_id ;;
+    hidden: yes
   }
 
   dimension_group: created {
@@ -42,7 +44,7 @@ view: requested_reviewer_history_core {
 
   dimension: pull_request_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.pull_request_id ;;
   }
 
@@ -54,6 +56,7 @@ view: requested_reviewer_history_core {
   dimension: requested_id {
     type: number
     sql: ${TABLE}.requested_id ;;
+    hidden: yes
   }
 
   measure: count {

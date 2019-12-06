@@ -26,6 +26,7 @@ view: pull_request_review_core {
       year
     ]
     sql: ${TABLE}._fivetran_synced ;;
+    hidden: yes
   }
 
   dimension: body {
@@ -40,7 +41,7 @@ view: pull_request_review_core {
 
   dimension: pull_request_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.pull_request_id ;;
   }
 
@@ -66,6 +67,7 @@ view: pull_request_review_core {
   dimension: user_id {
     type: number
     sql: ${TABLE}.user_id ;;
+    hidden: yes
   }
 
   measure: count {
