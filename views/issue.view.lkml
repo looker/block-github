@@ -48,6 +48,14 @@ view: issue_core {
     sql: ${TABLE}.closed_at ;;
   }
 
+  dimension: is_open {
+    type: yesno
+    sql: CASE
+  WHEN ${closed_date} IS NULL THEN true
+  ELSE false
+  END ;;
+  }
+
   dimension_group: created {
     type: time
     timeframes: [
