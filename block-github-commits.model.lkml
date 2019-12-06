@@ -132,4 +132,71 @@ explore: issue {
 explore: issue_core {
   extension: required
 
+  join: creator_user_info {
+    from: user_core
+    type: left_outer
+    sql_on: ${issue.user_id} = ${creator_user_info.id} ;;
+    relationship: one_to_many
+  }
+  join: issue_assignee {
+    type: left_outer
+    sql_on: ${issue.id} = ${issue_assignee.issue_id} ;;
+    relationship: one_to_many
+    fields: []
+  }
+  join: assignee_user_info {
+    from: user_core
+    type: left_outer
+    sql_on: ${issue_assignee.user_id} = ${assignee_user_info.id} ;;
+    relationship: one_to_many
+  }
+  join: issue_closed_history {
+    type: left_outer
+    sql_on: ${issue.id} = ${issue_closed_history.issue_id} ;;
+    relationship: one_to_many
+  }
+  join: issue_comment {
+    view_label: "Issue"
+    type: left_outer
+    sql_on: ${issue.id} = ${issue_comment.issue_id} ;;
+    relationship: one_to_many
+  }
+  join: issue_label {
+    view_label: "Issue"
+    type: left_outer
+    sql_on: ${issue.id} = ${issue_label.issue_id} ;;
+    relationship: one_to_one
+  }
+  join: issue_mention {
+    view_label: "Issue"
+    type: left_outer
+    sql_on: ${issue.id} = ${issue_mention.issue_id} ;;
+    relationship: one_to_one
+  }
+  join: mentioned_user_info {
+    from: user_core
+    type: left_outer
+    sql_on: ${issue_mention.user_id} = ${mentioned_user_info.id} ;;
+    relationship: one_to_one
+  }
+  join: issue_merged {
+    view_label: "Issue"
+    type: left_outer
+    sql_on: ${issue.id} = ${issue_merged.issue_id} ;;
+    relationship: one_to_one
+  }
+  join: issue_referenced {
+    view_label: "Issue"
+    type: left_outer
+    sql_on: ${issue.id} = ${issue_referenced.issue_id} ;;
+    relationship: one_to_one
+  }
+  join: issue_renamed {
+    view_label: "Issue"
+    type: left_outer
+    sql_on: ${issue.id} = ${issue_renamed.issue_id} ;;
+    relationship: one_to_one
+  }
+
+
 }

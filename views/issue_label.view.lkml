@@ -8,6 +8,7 @@ view: issue_label_core {
   sql_table_name: @{GITHUB_SCHEMA}.issue_label ;;
 
   dimension_group: _fivetran_synced {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -23,7 +24,7 @@ view: issue_label_core {
 
   dimension: issue_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.issue_id ;;
   }
 
@@ -33,6 +34,7 @@ view: issue_label_core {
   }
 
   measure: count {
+    label: "Label Count"
     type: count
     drill_fields: [issue.id]
   }

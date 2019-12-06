@@ -16,6 +16,7 @@ view: issue_core {
 
   dimension_group: _fivetran_synced {
     type: time
+    hidden: yes
     timeframes: [
       raw,
       time,
@@ -117,6 +118,7 @@ view: issue_core {
   }
 
   measure: count {
+    label: "Issue Count"
     type: count
     drill_fields: [detail*]
   }

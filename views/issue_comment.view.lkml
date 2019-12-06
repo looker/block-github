@@ -9,6 +9,7 @@ view: issue_comment_core {
   drill_fields: [id]
 
   dimension: id {
+    hidden: yes
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
@@ -16,6 +17,7 @@ view: issue_comment_core {
 
   dimension_group: _fivetran_synced {
     type: time
+    hidden: yes
     timeframes: [
       raw,
       time,
@@ -29,11 +31,15 @@ view: issue_comment_core {
   }
 
   dimension: body {
+    group_label: "Comment Info"
+    label: "Comment Body"
     type: string
     sql: ${TABLE}.body ;;
   }
 
   dimension_group: created {
+    group_label: "Comment Info"
+    label: "Comment Created"
     type: time
     timeframes: [
       raw,
@@ -49,11 +55,13 @@ view: issue_comment_core {
 
   dimension: issue_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.issue_id ;;
   }
 
   dimension_group: updated {
+    group_label: "Comment Info"
+    label: "Comment Updated"
     type: time
     timeframes: [
       raw,
@@ -68,11 +76,13 @@ view: issue_comment_core {
   }
 
   dimension: user_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.user_id ;;
   }
 
   measure: count {
+    label: "Comment Count"
     type: count
     drill_fields: [id, issue.id]
   }
