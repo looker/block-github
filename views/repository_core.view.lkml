@@ -84,6 +84,10 @@ view: repository_core {
     sql: REPLACE(${TABLE}.name, '-1', '') ;;
   }
 
+  dimension: head_repo_name {
+    type: string
+    sql: ${name} ;;
+  }
   dimension: name_formatted {
     type: string
     sql: CASE WHEN ${name} IN ('angular','angular.js', 'code.angularjs.org') THEN 'Angular'

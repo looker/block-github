@@ -19,6 +19,7 @@ view: pull_request_review_dismissed_core {
       year
     ]
     sql: ${TABLE}._fivetran_synced ;;
+    hidden: yes
   }
 
   dimension: actor_id {
@@ -52,7 +53,7 @@ view: pull_request_review_dismissed_core {
 
   dimension: pull_request_review_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.pull_request_review_id ;;
   }
 

@@ -84,6 +84,16 @@ view: user_core {
     sql: ${TABLE}.name ;;
   }
 
+  dimension: head_user_name {
+    type: string
+    sql: ${TABLE}.name ;;
+  }
+
+  dimension: base_user_name {
+    type: string
+    sql: ${TABLE}.name ;;
+  }
+
   dimension: site_admin {
     type: yesno
     sql: ${TABLE}.site_admin ;;
