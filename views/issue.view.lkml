@@ -41,6 +41,8 @@ view: issue_core {
       time,
       date,
       week,
+      day_of_week,
+      hour_of_day,
       month,
       quarter,
       year
