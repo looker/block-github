@@ -133,6 +133,13 @@ view: issue_core {
     drill_fields: [detail*]
   }
 
+  measure: avg_open {
+    label: "Average Open Duration"
+    type: average
+    sql: ${hours_open} ;;
+    drill_fields: [detail*]
+  }
+
   dimension_group: open {
     type: duration
     sql_start:${created_raw}  ;;
