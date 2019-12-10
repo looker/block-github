@@ -101,6 +101,11 @@ explore: pull_request_core {
     sql_on: ${pull_request.issue_id} = ${issue.id} ;;
     relationship: many_to_one
   }
+  join: repository {
+    type: left_outer
+    sql_on: ${pull_request.base_repo_id} = ${repository.id} ;;
+    relationship: many_to_one
+  }
   join: requested_reviewer_history {
     type: left_outer
     sql_on: ${pull_request.id} = ${requested_reviewer_history.pull_request_id} ;;

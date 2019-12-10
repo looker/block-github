@@ -10,7 +10,7 @@ view: user_core {
 
   dimension: id {
     primary_key: yes
-    type: number
+    type: string
     hidden: yes
     sql: ${TABLE}.id ;;
   }

@@ -10,8 +10,9 @@ view: issue_core {
 
   dimension: id {
     primary_key: yes
-    type: number
+    type: string
     sql: ${TABLE}.id ;;
+    hidden: yes
   }
 
   dimension_group: _fivetran_synced {
@@ -71,13 +72,17 @@ view: issue_core {
 
   dimension: milestone_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.milestone_id ;;
   }
 
   dimension: number {
     type: number
     sql: ${TABLE}.number ;;
+    link: {
+      url:"http://github.com/@{COMPANY_DOMAIN}/{{ repository.name._value }}/issues/{{ value }}"
+      label: "View in GitHub"
+    }
   }
 
   dimension: pull_request {
