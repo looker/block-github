@@ -5,6 +5,9 @@ local_dependency: {
   override_constant: GITHUB_SCHEMA {
     value: "@{GITHUB_SCHEMA}"
   }
+  override_constant: COMPANY_DOMAIN {
+    value: "@{COMPANY_DOMAIN}"
+  }
 }
 
 constant: CONFIG_PROJECT_NAME {
