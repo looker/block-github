@@ -38,7 +38,7 @@ view: issue_closed_history_core {
 
   dimension: issue_id {
     type: number
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.issue_id ;;
   }
 

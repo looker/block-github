@@ -11,7 +11,7 @@ view: issue_comment_core {
   dimension: id {
     hidden: yes
     primary_key: yes
-    type: number
+    type: string
     sql: ${TABLE}.id ;;
   }
 

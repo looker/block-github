@@ -10,7 +10,7 @@ view: repository_core {
 
   dimension: id {
     primary_key: yes
-    type: number
+    type: string
     hidden: yes
     sql: ${TABLE}.id ;;
   }
@@ -82,6 +82,10 @@ view: repository_core {
   dimension: name {
     type: string
     sql: REPLACE(${TABLE}.name, '-1', '') ;;
+    link: {
+      url:"http://github.com/@{COMPANY_DOMAIN}/{{ value }}"
+      label: "View in GitHub"
+    }
   }
 
   dimension: head_repo_name {

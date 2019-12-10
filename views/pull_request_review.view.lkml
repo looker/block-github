@@ -10,7 +10,7 @@ view: pull_request_review_core {
 
   dimension: id {
     primary_key: yes
-    type: number
+    type: string
     sql: ${TABLE}.id ;;
   }
 
