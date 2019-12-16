@@ -1,4 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
+include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: pull_request_review_dismissed {
   extends: [pull_request_review_dismissed_config]

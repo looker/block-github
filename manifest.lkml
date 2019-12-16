@@ -1,4 +1,4 @@
-project_name: "block-github-commits"
+project_name: "block-github"
 
 local_dependency: {
   project: "@{CONFIG_PROJECT_NAME}"
@@ -11,7 +11,7 @@ local_dependency: {
 }
 
 constant: CONFIG_PROJECT_NAME {
-  value: "block-github-commits-config"
+  value: "block-github-config"
   export: override_required
 }
 

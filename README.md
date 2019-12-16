@@ -1,7 +1,7 @@
-# GitHub Commits Block
+# GitHub Block
 
-This repository contains views, explores, and dashboards that make up the GitHub Commmits Block. 
-GitHub Commits dahboard provides an analysis of commit history, commit authors and repository changes. 
+This repository contains views, explores, and dashboards that make up the GitHub Commmits Block.
+GitHub Commits dahboard provides an analysis of commit history, commit authors and repository changes.
 
 LookML content of this block is remotely included through the GitHub Commits Config project and is installed through the Marketplace.
 

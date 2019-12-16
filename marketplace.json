@@ -1,5 +1,5 @@
 {
-  "label": "GitHub Commits",
+  "label": "GitHub",
   "category_label": "Models",
   "branding": {
     "image_uri": "https://marketplace-api.looker.com/block-icons/github_icon.png",
@@ -20,15 +20,15 @@
   },
   "models": [
     {
-      "name": "block_github_commits",
+      "name": "block_github",
       "connection_constant": "CONNECTION_NAME"
     }
   ],
   "auxiliary_projects": [
     {
-      "git_uri": "git://github.com/looker/block-github-commits-config.git",
+      "git_uri": "git://github.com/looker/block-github-config.git",
       "git_ref": "17f810b4334ad91db9d9c5d8c7f885a41458882e",
-      "label": "GitHub Commits Config",
+      "label": "GitHub Config",
       "constant_name": "CONFIG_PROJECT_NAME"
     }
   ]
