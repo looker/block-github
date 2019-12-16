@@ -1,4 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
+include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: commit_parent {
   extends: [commit_parent_config]

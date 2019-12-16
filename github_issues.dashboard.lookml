@@ -4,7 +4,7 @@
   elements:
   - title: Avg Open Duration by Month
     name: Avg Open Duration by Month
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_area
     fields: [issue.created_month, issue.avg_open]
@@ -23,7 +23,7 @@
     height: 6
   - title: Issues with Most Mentions
     name: Issues with Most Mentions
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_grid
     fields: [issue.number, issue.title, repository.name, issue.created_date, issue.state,
@@ -78,7 +78,7 @@
     height: 8
   - title: Issue Status by Month
     name: Issue Status by Month
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_column
     fields: [issue.count, issue.created_month, issue.state]
@@ -137,7 +137,7 @@
     height: 6
   - title: Closed Issues Heatmap
     name: Closed Issues Heatmap
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_grid
     fields: [issue.count, issue.closed_hour_of_day, issue.closed_day_of_week]
@@ -212,7 +212,7 @@
     height: 13
   - title: Issues Burndown
     name: Issues Burndown
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_area
     fields: [issue.count, issue.created_date, issue.state]
@@ -273,7 +273,7 @@
     height: 12
   - title: Issues with Most Comments
     name: Issues with Most Comments
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_grid
     fields: [issue.number, issue.title, repository.name, issue.created_date, issue.days_open,
@@ -327,7 +327,7 @@
     height: 7
   - title: Most Mentioned Users
     name: Most Mentioned Users
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_grid
     fields: [mentioned_user_info.name, mentioned_user_info.login, issue_mention.count]
@@ -343,7 +343,7 @@
     height: 7
   - title: Issues Created Over Time
     name: Issues Created Over Time
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_area
     fields: [issue.created_date, issue.count]
@@ -394,7 +394,7 @@
     height: 5
   - title: Issues by Label
     name: Issues by Label
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_column
     fields: [issue_label.label, issue_renamed.count]
@@ -446,7 +446,7 @@
     height: 6
   - title: Issues By Status and Repository
     name: Issues By Status and Repository
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_column
     fields: [repository.name, issue.state, issue.count]
@@ -502,7 +502,7 @@
     height: 6
   - title: Most Referenced Issues
     name: Most Referenced Issues
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_grid
     fields: [issue.id, issue_referenced.count, issue.title]
@@ -518,12 +518,12 @@
     height: 7
   - title: Oldest Open Issues
     name: Oldest Open Issues
-    model: block-github-commits
+    model: block-github
     explore: issue
     type: looker_grid
     fields: [issue.title, issue.body, issue.created_date]
     filters:
-      issue.open_or_closed: Open
+      issue.state: open
     sorts: [issue.created_date]
     limit: 500
     query_timezone: America/Los_Angeles
@@ -576,7 +576,7 @@
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: block-github-commits
+    model: block-github
     explore: issue
     listens_to_filters: []
     field: issue.created_date

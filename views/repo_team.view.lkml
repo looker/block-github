@@ -1,4 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/github_commits.view"
+include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: repo_team {
   extends: [repo_team_config]
