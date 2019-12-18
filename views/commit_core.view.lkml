@@ -106,10 +106,12 @@ view: commit_core {
     drill_fields: [author_name, message, author_date]
   }
 
+  ## email is an accurate count_distinct key
+
   measure:  author_count_distinct {
-    description: "Only counts authors with unique name"
+    description: "Unique authout count by email"
     type: count_distinct
-    sql: ${author_name} ;;
+    sql: ${author_email} ;;
   }
 
   measure: average_message_length {
