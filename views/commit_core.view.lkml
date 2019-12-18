@@ -106,6 +106,12 @@ view: commit_core {
     drill_fields: [author_name, message, author_date]
   }
 
+  measure:  author_count_distinct {
+    description: "Only counts authors with unique name"
+    type: count_distinct
+    sql: ${author_name} ;;
+  }
+
   measure: average_message_length {
     type: average
     sql: ${message_length} ;;
