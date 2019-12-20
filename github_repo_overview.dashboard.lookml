@@ -34,8 +34,8 @@
     col: 6
     width: 6
     height: 3
-  - title: Open PRs
-    name: Open PRs
+  - title: Open PR Details
+    name: Open PR Details
     model: block-github
     explore: pull_request
     type: looker_grid
