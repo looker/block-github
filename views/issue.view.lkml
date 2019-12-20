@@ -132,6 +132,11 @@ view: issue_core {
     sql: ${TABLE}.user_id ;;
   }
 
+  dimension: open_longer_than_2_weeks {
+    type: yesno
+    sql: CASE WHEN ${hours_open} >= 336 THEN TRUE ELSE FALSE END ;;
+  }
+
   measure: count {
     label: "Issue Count"
     type: count
@@ -143,6 +148,7 @@ view: issue_core {
     type: average
     sql: ${hours_open} ;;
     drill_fields: [detail*]
+    value_format_name: decimal_1
   }
 
   dimension_group: open {
