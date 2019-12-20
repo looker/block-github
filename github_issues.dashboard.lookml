@@ -62,8 +62,8 @@
       Label: issue_label.label
     row: 3
     col: 0
-    width: 14
-    height: 12
+    width: 12
+    height: 13
   - title: Issue Status by Month
     name: Issue Status by Month
     model: block-github
@@ -121,9 +121,9 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 3
-    col: 14
-    width: 10
+    row: 22
+    col: 0
+    width: 12
     height: 6
   - title: Issues By Status and Repository
     name: Issues By Status and Repository
@@ -179,10 +179,10 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 9
-    col: 14
-    width: 10
-    height: 6
+    row: 3
+    col: 12
+    width: 12
+    height: 7
   - title: Issues Created Over Time
     name: Issues Created Over Time
     model: block-github
@@ -232,9 +232,9 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 15
+    row: 16
     col: 0
-    width: 10
+    width: 12
     height: 6
   - title: Closed Issues Heatmap
     name: Closed Issues Heatmap
@@ -309,9 +309,9 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 15
-    col: 10
-    width: 14
+    row: 16
+    col: 12
+    width: 12
     height: 12
   - title: Issues by Label
     name: Issues by Label
@@ -362,10 +362,10 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 34
+    row: 10
     col: 12
     width: 12
-    height: 7
+    height: 6
   - title: Most Mentioned Users
     name: Most Mentioned Users
     model: block-github
@@ -380,10 +380,10 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 34
-    col: 0
+    row: 48
+    col: 12
     width: 12
-    height: 7
+    height: 6
   - title: Issues with Most Mentions
     name: Issues with Most Mentions
     model: block-github
@@ -455,8 +455,8 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 27
-    col: 0
+    row: 41
+    col: 12
     width: 12
     height: 7
   - title: Issues with Most Comments
@@ -511,8 +511,8 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 27
-    col: 12
+    row: 34
+    col: 0
     width: 12
     height: 7
   - title: Most Referenced Issues
@@ -529,7 +529,7 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 41
+    row: 28
     col: 0
     width: 12
     height: 6
@@ -584,10 +584,10 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 41
+    row: 34
     col: 12
     width: 12
-    height: 6
+    height: 7
   - title: Avg Open Duration by Month
     name: Avg Open Duration by Month
     model: block-github
@@ -603,9 +603,9 @@
       Issue Created Date: issue.created_date
       Repository: repository.name
       Label: issue_label.label
-    row: 21
-    col: 0
-    width: 10
+    row: 28
+    col: 12
+    width: 12
     height: 6
   - title: Issues Open
     name: Issues Open
@@ -663,20 +663,37 @@
     col: 12
     width: 6
     height: 3
-  - title: Avg Issues Per Repo
-    name: Avg Issues Per Repo
+  - title: Issues Open Longer Than 2 Weeks
+    name: Issues Open Longer Than 2 Weeks
+    model: block-github
+    explore: issue
+    type: looker_grid
+    fields: [issue.number, issue.title, issue_label.label, repository.name]
+    filters:
+      issue.created_date: ''
+      issue.open_longer_than_2_weeks: 'Yes'
+    sorts: [issue.number]
+    limit: 500
+    column_limit: 50
+    series_types: {}
+    hidden_fields: []
+    listen: {}
+    row: 41
+    col: 0
+    width: 12
+    height: 7
+  - title: Issues Older Than 2 Weeks
+    name: Issues Older Than 2 Weeks
     model: block-github
     explore: issue
     type: single_value
-    fields: [issue.count, repository.count]
-    filters: {}
+    fields: [issue.count]
+    filters:
+      issue.open_longer_than_2_weeks: 'Yes'
     limit: 500
     column_limit: 50
-    dynamic_fields: [{table_calculation: avg_issues_per_repo, label: Avg Issues Per
-          Repo, expression: "${issue.count}/${repository.count}", value_format: !!null '',
-        value_format_name: decimal_1, _kind_hint: measure, _type_hint: number}]
     series_types: {}
-    hidden_fields: [issue.count, repository.count]
+    hidden_fields: [issue.count]
     listen:
       Issue Created Date: issue.created_date
       Repository: repository.name
