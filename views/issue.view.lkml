@@ -144,9 +144,9 @@ view: issue_core {
   }
 
   measure: avg_open {
-    label: "Average Open Duration"
+    label: "Days Open"
     type: average
-    sql: ${hours_open} ;;
+    sql: ${hours_open} / 24 ;;
     drill_fields: [detail*]
     value_format_name: decimal_1
   }
