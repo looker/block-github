@@ -8,3 +8,7 @@ LookML content of this block is remotely included through the GitHub Commits Con
 The LookML constants are used to specify the name of the schema and connection. They are defined in the GitHub Commits Config project.
 
 This Block is modeled on the schema brough in by Fivetran's [GitHub connector](https://fivetran.com/directory/github). It will bring over all the tables that are available in the [GitHub Schema](https://docs.google.com/presentation/d/1lx6ez7-x-s-n2JCnCi3SjG4XMmx9ysNUvaNCaWc3I_I/edit#slide=id.g244d368397_0_1).
+
+### What if I find an error? Suggestions for improvements?
+
+Great! Blocks were designed for continuous improvement through the help of the entire Looker community and we'd love your input. To report an error or improvement recommendation, please reach out to Looker support via email to support@looker.com or via chat to submit a request. Please be as detailed as possible in your explanation and we'll address it as quick as we can.
