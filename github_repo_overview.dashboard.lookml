@@ -532,11 +532,20 @@
     explore: commit
     type: single_value
     fields: [commit.count]
-    filters: {}
     limit: 500
     column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
     series_types: {}
-    hidden_fields: [commit.count]
+    hidden_fields:
+    defaults_version: 1
     listen:
       Created Date: commit.author_date
       Repository: repository.name
@@ -554,8 +563,18 @@
       commit.committer_date: 1 months
     limit: 500
     column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
     series_types: {}
-    hidden_fields: [user.count]
+    hidden_fields:
+    defaults_version: 1
     listen:
       Created Date: commit.author_date
       Repository: repository.name
@@ -570,6 +589,9 @@
     default_value: ''
     allow_multiple_values: true
     required: false
+    ui_config:
+      type: advanced
+      display: popover
     model: block-github
     explore: commit
     listens_to_filters: []
@@ -580,6 +602,9 @@
     default_value: ''
     allow_multiple_values: true
     required: false
+    ui_config:
+      type: advanced
+      display: popover
     model: block-github
     explore: commit
     listens_to_filters: []
