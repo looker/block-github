@@ -20,7 +20,7 @@
   },
   "models": [
     {
-      "name": "block_github",
+      "name": "block-github",
       "connection_constant": "CONNECTION_NAME"
     }
   ],
