@@ -1,6 +1,7 @@
 - dashboard: github_issues
   title: GitHub Issues
   layout: newspaper
+  preferred_viewer: dashboards-next
   elements:
   - title: Issues with Most Mentions
     name: Issues with Most Mentions
