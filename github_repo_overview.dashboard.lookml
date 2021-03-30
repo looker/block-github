@@ -1,6 +1,7 @@
 - dashboard: github_repo_overview
   title: Github Repo Overview
   layout: newspaper
+  preferred_viewer: dashboards-next
   elements:
   - title: Total Authors
     name: Total Authors
