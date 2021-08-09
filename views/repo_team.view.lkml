@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: repo_team {
-  extends: [repo_team_config]
-}
-
-view: repo_team_core {
   sql_table_name: @{GITHUB_SCHEMA}.repo_team ;;
 
   dimension_group: _fivetran_synced {

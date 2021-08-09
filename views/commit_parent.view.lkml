@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: commit_parent {
-  extends: [commit_parent_config]
-}
-
-view: commit_parent_core {
   sql_table_name: @{GITHUB_SCHEMA}.commit_parent ;;
 
   dimension_group: _fivetran_synced {

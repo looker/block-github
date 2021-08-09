@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: commit_file {
-  extends: [commit_file_config]
-}
-
-view: commit_file_core {
   sql_table_name: @{GITHUB_SCHEMA}.commit_file ;;
 
   dimension_group: _fivetran_synced {

@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: pull_request_review_dismissed {
-  extends: [pull_request_review_dismissed_config]
-}
-
-view: pull_request_review_dismissed_core {
   sql_table_name: @{GITHUB_SCHEMA}.pull_request_review_dismissed ;;
 
   dimension_group: _fivetran_synced {

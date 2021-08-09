@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: issue_comment {
-  extends: [issue_comment_config]
-}
-
-view: issue_comment_core {
   sql_table_name: @{GITHUB_SCHEMA}.issue_comment ;;
   drill_fields: [id]
 

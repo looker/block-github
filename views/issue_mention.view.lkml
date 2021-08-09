@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: issue_mention {
-  extends: [issue_mention_config]
-}
-
-view: issue_mention_core {
   sql_table_name: @{GITHUB_SCHEMA}.issue_mention ;;
 
   dimension_group: _fivetran_synced {

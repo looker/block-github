@@ -1,6 +1,4 @@
 connection: "@{CONNECTION_NAME}"
-include: "//@{CONFIG_PROJECT_NAME}/*.view"
-include: "//@{CONFIG_PROJECT_NAME}/*.dashboard"
 include: "views/*.view"
 include: "*.dashboard"
 
@@ -11,12 +9,8 @@ datagroup: block_github_commits_default_datagroup {
 
 persist_with: block_github_commits_default_datagroup
 
-explore: commit {
-  extends: [commit_config]
-}
 
-explore: commit_core {
-  extension: required
+explore: commit {
   join: user_email {
     type: left_outer
     sql_on: ${commit.author_email} = ${user_email.email} ;;
@@ -58,12 +52,6 @@ explore: commit_core {
 }
 
 explore: team {
-  extends: [team_config]
-}
-
-explore: team_core {
-  extension: required
-
   join: team_membership {
     fields: []
     type: left_outer
@@ -89,12 +77,6 @@ explore: team_core {
 }
 
 explore: pull_request {
-  extends: [pull_request_config]
-}
-
-explore: pull_request_core {
-  extension: required
-
   join: issue {
     from: user
     type: left_outer
@@ -147,15 +129,10 @@ explore: pull_request_core {
 
 }
 
+
 explore: issue {
-  extends: [issue_config]
-}
-
-explore: issue_core {
-  extension: required
-
   join: creator_user_info {
-    from: user_core
+    from: user
     type: left_outer
     sql_on: ${issue.user_id} = ${creator_user_info.id} ;;
     relationship: one_to_many
@@ -167,7 +144,7 @@ explore: issue_core {
     fields: []
   }
   join: assignee_user_info {
-    from: user_core
+    from: user
     type: left_outer
     sql_on: ${issue_assignee.user_id} = ${assignee_user_info.id} ;;
     relationship: one_to_many
@@ -179,7 +156,7 @@ explore: issue_core {
     relationship: one_to_many
   }
   join: comment_user_info {
-    from: user_core
+    from: user
     type: left_outer
     sql_on: ${issue_comment.user_id} = ${comment_user_info.id} ;;
     relationship: one_to_one
@@ -197,7 +174,7 @@ explore: issue_core {
     relationship: one_to_one
   }
   join: mentioned_user_info {
-    from: user_core
+    from: user
     type: left_outer
     sql_on: ${issue_mention.user_id} = ${mentioned_user_info.id} ;;
     relationship: one_to_one
@@ -209,7 +186,7 @@ explore: issue_core {
     relationship: one_to_one
   }
   join: merge_user_info {
-    from: user_core
+    from: user
     type: left_outer
     sql_on: ${issue_merged.actor_id} = ${merge_user_info.id} ;;
     relationship: one_to_one
@@ -221,7 +198,7 @@ explore: issue_core {
     relationship: one_to_one
   }
   join: referenced_user_info {
-    from: user_core
+    from: user
     type: left_outer
     sql_on: ${issue_referenced.actor_id} = ${referenced_user_info.id} ;;
     relationship: one_to_one
