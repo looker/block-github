@@ -1,10 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
-
 view: column {
-  extends: [column_config]
-}
-
-view: column_core {
   sql_table_name: @{GITHUB_SCHEMA}.column ;;
   drill_fields: [id]
 

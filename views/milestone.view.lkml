@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: milestone {
-  extends: [milestone_config]
-}
-
-view: milestone_core {
   sql_table_name: @{GITHUB_SCHEMA}.milestone ;;
   drill_fields: [id]
 

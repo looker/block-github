@@ -5,7 +5,7 @@
   elements:
   - title: Total Authors
     name: Total Authors
-    model: block-github
+    model: block-github-v2
     explore: commit
     type: single_value
     fields: [commit.author_count_distinct]
@@ -20,7 +20,7 @@
     height: 3
   - title: Commits Over Time
     name: Commits Over Time
-    model: block-github
+    model: block-github-v2
     explore: commit
     type: looker_area
     fields: [commit.author_year, commit.count, repository.name]
@@ -91,7 +91,7 @@
     height: 10
   - title: Open PRs
     name: Open PRs
-    model: block-github
+    model: block-github-v2
     explore: pull_request
     type: single_value
     fields: [pull_request.count, pull_request.is_merged]
@@ -108,7 +108,7 @@
     height: 3
   - title: Committers Over Time
     name: Committers Over Time
-    model: block-github
+    model: block-github-v2
     explore: commit
     type: looker_area
     fields: [commit.author_year, repository.name, user.count]
@@ -179,7 +179,7 @@
     height: 10
   - title: Avg Message Length by Repository
     name: Avg Message Length by Repository
-    model: block-github
+    model: block-github-v2
     explore: commit
     type: looker_column
     fields: [commit.average_message_length, repository.name]
@@ -236,7 +236,7 @@
     height: 11
   - title: Top 10 Committer Locations
     name: Top 10 Committer Locations
-    model: block-github
+    model: block-github-v2
     explore: commit
     type: looker_bar
     fields: [user.location, commit.count]
@@ -297,7 +297,7 @@
     height: 10
   - title: PR Reviews by State
     name: PR Reviews by State
-    model: block-github
+    model: block-github-v2
     explore: pull_request
     type: looker_bar
     fields: [pull_request_review.state, pull_request.count]
@@ -357,7 +357,7 @@
     height: 7
   - title: Top Committers
     name: Top Committers
-    model: block-github
+    model: block-github-v2
     explore: commit
     type: looker_bar
     fields: [commit.count, user.name, dt_rank.rank]
@@ -418,7 +418,7 @@
     height: 10
   - title: Commits By Day of Week and Hour of Day
     name: Commits By Day of Week and Hour of Day
-    model: block-github
+    model: block-github-v2
     explore: commit
     type: looker_grid
     fields: [commit.author_day_of_week, commit.count, commit.author_hour_of_day]
@@ -494,7 +494,7 @@
     height: 11
   - title: Open PR Details
     name: Open PR Details
-    model: block-github
+    model: block-github-v2
     explore: pull_request
     type: looker_grid
     fields: [pull_request_head_user.head_user_name, pull_request.id, reposityry_head.head_repo_name,
@@ -529,7 +529,7 @@
     height: 7
   - title: Commits This Month
     name: Commits This Month
-    model: block-github
+    model: block-github-v2
     explore: commit
     type: single_value
     fields: [commit.count]
@@ -556,7 +556,7 @@
     height: 3
   - title: Committers This Month
     name: Committers This Month
-    model: block-github
+    model: block-github-v2
     explore: commit
     type: single_value
     fields: [user.count]
@@ -593,7 +593,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: block-github
+    model: block-github-v2
     explore: commit
     listens_to_filters: []
     field: commit.author_date
@@ -606,7 +606,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: block-github
+    model: block-github-v2
     explore: commit
     listens_to_filters: []
     field: repository.name

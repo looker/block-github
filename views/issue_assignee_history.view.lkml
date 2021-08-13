@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: issue_assignee_history {
-  extends: [issue_assignee_history_config]
-}
-
-view: issue_assignee_history_core {
   sql_table_name: @{GITHUB_SCHEMA}.issue_assignee_history ;;
 
   dimension_group: _fivetran_synced {

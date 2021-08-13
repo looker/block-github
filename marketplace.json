@@ -13,23 +13,12 @@
     },
     "GITHUB_SCHEMA": {
       "label": "GitHub Schema Name"
-    },
-    "CONFIG_PROJECT_NAME": {
-      "label": "Config Project Name"
     }
   },
   "models": [
     {
-      "name": "block-github",
+      "name": "block-github-v2",
       "connection_constant": "CONNECTION_NAME"
-    }
-  ],
-  "auxiliary_projects": [
-    {
-      "git_uri": "git://github.com/looker/block-github-config.git",
-      "git_ref": "0b9d2ea8410e74943520f7fe6f31582aaade0e9d",
-      "label": "GitHub Config",
-      "constant_name": "CONFIG_PROJECT_NAME"
     }
   ]
 }

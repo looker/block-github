@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: user {
-  extends: [user_config]
-}
-
-view: user_core {
   sql_table_name: @{GITHUB_SCHEMA}.user ;;
   drill_fields: [id]
 

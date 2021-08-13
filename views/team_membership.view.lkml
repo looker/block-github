@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: team_membership {
-  extends: [team_membership_config]
-}
-
-view: team_membership_core {
   sql_table_name: @{GITHUB_SCHEMA}.team_membership ;;
 
   dimension_group: _fivetran_synced {

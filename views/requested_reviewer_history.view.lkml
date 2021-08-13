@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: requested_reviewer_history {
-  extends: [requested_reviewer_history_config]
-}
-
-view: requested_reviewer_history_core {
   sql_table_name: @{GITHUB_SCHEMA}.requested_reviewer_history ;;
 
   dimension_group: _fivetran_synced {

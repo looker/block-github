@@ -1,10 +1,5 @@
-include: "//@{CONFIG_PROJECT_NAME}/github.view"
 
 view: pull_request_review {
-  extends: [pull_request_review_config]
-}
-
-view: pull_request_review_core {
   sql_table_name: @{GITHUB_SCHEMA}.pull_request_review ;;
   drill_fields: [id]
 
