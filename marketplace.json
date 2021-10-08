@@ -16,7 +16,7 @@
     },
     "COMPANY_DOMAIN": {
       "label": "GitHub Schema Name"
-    },    
+    }    
   },
   "models": [
     {
